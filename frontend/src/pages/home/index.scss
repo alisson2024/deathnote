@@ -1,0 +1,25 @@
+
+
+
+
+.pagina-home {
+    padding: 50px;
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin-bottom: 12px;
+
+        label {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 6px;
+            margin-top: 8px;
+        }
+    }
+}
