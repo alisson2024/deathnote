@@ -41,7 +41,6 @@ export async function inserirDiario(diario) {
 
     let resposta = await con.query (comando, [diario.data, diario.conteudo, diario.idUsuario])
     let  info = resposta[0];
-console.log(diario)
     return info.insertId;
 }
 

@@ -35,7 +35,7 @@ export default function Consultar() {
         let token = localStorage.getItem('USUARIO')
         setToken(token)
 
-        if (token == 'null') {
+        if (token === 'null') {
             navigate('/')
         }
     }, [])  

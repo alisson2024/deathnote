@@ -27,40 +27,41 @@ export default function Cadastrar() {
             // CRIAR
             const url = `http://localhost:5011/inserirDiario?x-access-token=${token}`;
             let resp = await axios.post(url, paramCorpo);
-            alert('Pessoa adicionada no diario.     Id: ' + resp.data.novoId);
+            alert('Pessoa adicionada no Id: ' + resp.data.novoId);
         } 
         else {
             // ALTERAR
             const url = `http://localhost:5011/atualizarDiario/${id}?x-access-token=${token}`;
-            let resp = await axios.put(url, paramCorpo);
-            alert('Pessoa alterada no diario.' );
+            await axios.put(url, paramCorpo);
+            alert('Pessoa alterada no Id: ' + id);
         }
     }
 
-    async function consultar(token) {
-        if (id === null) {
-            const url = `http://localhost:5011/consultarDiario/${id}?x-access-token=${token}`;
-            let resp  = await axios.get(url);
-            let dados = resp.data;
-
-            let data = moment(dados.data).format('YYYY-MM-DD')
-            console.log(data)
-
-            setConteudo(dados.conteudo)
-            setData(data)
-        }
-    }
 
     useEffect(() => {
+        async function consultar(token) {
+            if (id === null) {
+                const url = `http://localhost:5011/consultarDiario/${id}?x-access-token=${token}`;
+                let resp  = await axios.get(url);
+                let dados = resp.data;
+    
+                let data = moment(dados.data).format('YYYY-MM-DD')
+                console.log(data)
+    
+                setConteudo(dados.conteudo)
+                setData(data)
+            }
+        }
+
         let token = localStorage.getItem('USUARIO')
         setToken(token)
 
-        if (token == 'null') {
+        if (token === 'null') {
             navigate('/')
         }
 
         consultar(token);
-    },[])
+    }, [navigate, id, token])
 
     return (
         <div className='pagina-cadastrar'>

@@ -18,7 +18,7 @@ export default function Home() {
         const url = `http://localhost:5011/entrar/`
         let resp = await axios.post(url, usuario)
 
-        if (resp.data.erro != undefined) {
+        if (resp.data.erro !== undefined) {
             alert(resp.data.erro)
         } else {
             localStorage.setItem('USUARIO', resp.data.token)

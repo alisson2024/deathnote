@@ -64,7 +64,9 @@ endpoints.put('/atualizarDiario/:id', autenticar, async (req, resp) => {
         let linhasAfetadas = await db.atualizarDiario(id, diario)
 
         if (linhasAfetadas >= 1) {
-            resp.send();
+            resp.send({
+                id:linhasAfetadas
+            });
         }
         else {
             resp.status(404).send({ erro: 'Nenhum registro encontrado' })
