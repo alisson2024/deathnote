@@ -34,13 +34,14 @@ export async function consultarDiarioPorId(id) {
 
 export async function inserirDiario(diario) {
     const comando = `
-    INSERT INTO tb_diario(dt_conteudo,ds_conteudo,id_usuario)
+    INSERT INTO tb_diario(dt_conteudo,ds_conteudo, id_usuario)
     VALUES(?,?,?)
     `;
+    
 
     let resposta = await con.query (comando, [diario.data, diario.conteudo, diario.idUsuario])
     let  info = resposta[0];
-
+console.log(diario)
     return info.insertId;
 }
 

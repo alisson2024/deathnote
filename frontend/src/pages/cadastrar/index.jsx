@@ -37,8 +37,8 @@ export default function Cadastrar() {
         }
     }
 
-    async function consultar() {
-        if (id == null) {
+    async function consultar(token) {
+        if (id === null) {
             const url = `http://localhost:5011/consultarDiario/${id}?x-access-token=${token}`;
             let resp  = await axios.get(url);
             let dados = resp.data;

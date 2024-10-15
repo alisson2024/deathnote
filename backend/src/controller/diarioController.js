@@ -36,10 +36,10 @@ endpoints.get('/consultarDiarioPorId/:id', autenticar   , async (req, resp) => {
 })
 
 
-endpoints.post('/inserirDiario/', autenticar, async (req, resp) => {
+endpoints.post('/inserirDiario', autenticar, async (req, resp) => {
     try {
         let diario = req.body
-        diario.idusuario = req.user.id
+        diario.idUsuario = req.user.id
 
         let resposta = await db.inserirDiario(diario)
 
