@@ -12,28 +12,38 @@ export default function Cadastrar() {
 
     const [conteudo, setConteudo] = useState('');
     const [data, setData] = useState('');
-  
+
     const navigate = useNavigate()
 
-    const { id } = useParams();  
+    const { id } = useParams();
 
     async function salvar() {
-        let paramCorpo = {    
+        let paramCorpo = {
             "conteudo": conteudo,
             "data": data
         }
 
         if (id == null) {
             // CRIAR
-            const url = `http://localhost:5011/inserirDiario?x-access-token=${token}`;
-            let resp = await axios.post(url, paramCorpo);
-            alert('Pessoa adicionada no Id: ' + resp.data.novoId);
-        } 
+            if (!paramCorpo.conteudo || !paramCorpo.data) {
+                alert('Por favor, preencha todos os campos')
+            }
+            else {
+                const url = `http://localhost:5011/inserirDiario?x-access-token=${token}`;
+                let resp = await axios.post(url, paramCorpo);
+                alert('Pessoa adicionada no Id: ' + resp.data.novoId);
+            }
+        }
         else {
             // ALTERAR
-            const url = `http://localhost:5011/atualizarDiario/${id}?x-access-token=${token}`;
-            await axios.put(url, paramCorpo);
-            alert('Pessoa alterada no Id: ' + id);
+            if (!paramCorpo.conteudo || !paramCorpo.data) {
+                alert('Por favor, preencha todos os campos')
+            } else {
+                const url = `http://localhost:5011/atualizarDiario/${id}?x-access-token=${token}`;
+                await axios.put(url, paramCorpo);
+                alert('Pessoa alterada no Id: ' + id);
+            }
+
         }
     }
 
@@ -42,12 +52,12 @@ export default function Cadastrar() {
         async function consultar(token) {
             if (id === null) {
                 const url = `http://localhost:5011/consultarDiario/${id}?x-access-token=${token}`;
-                let resp  = await axios.get(url);
+                let resp = await axios.get(url);
                 let dados = resp.data;
-    
+
                 let data = moment(dados.data).format('YYYY-MM-DD')
                 console.log(data)
-    
+
                 setConteudo(dados.conteudo)
                 setData(data)
             }
