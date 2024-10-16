@@ -3,13 +3,22 @@
 
 
 .pagina-home {
+    display: flex;
+    flex-direction: column;
     padding: 50px;
-
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    align-items: center;
+    button{
+        margin: 10px;
+        padding: 15px;
+        width: 80px;
+    }
     .campo {
         display: flex;
         flex-direction: column;
-        width: 250px;
-        margin-bottom: 12px;
+        width: 300px;
+        margin-bottom: 20px;
 
         label {
             font-size: 22px;

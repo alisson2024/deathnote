@@ -45,7 +45,7 @@ export default function Consultar() {
         <div className='pagina-consultar'>
             <h2>Bem-vindo {token?.nome}</h2>
                  <button onClick={sair}>Sair</button>
-            <h1> CONSULTAR </h1>
+            <h2> CONSULTAR </h2>
 
             <button onClick={buscar}>Buscar</button>
             <button><Link to={'/cadastrar'}>Cadastrar</Link></button>
@@ -66,11 +66,15 @@ export default function Consultar() {
                             <td>{item.conteudo}</td>
                             <td>{new Date(item.data).toLocaleDateString()}</td>
                             
-                            <td>
-                                <Link to={`/cadastrar/${item.id}`}>Alterar</Link>
-                                <Link onClick={() => excluir(item.id)}>Deletar</Link>
-                            </td>
-                        </tr>
+                            <div className='botoes'>
+                                 <Link to={`/cadastrar/${item.id}`}>
+                                 <img src="/edit.png" alt="alterar" width='30px'/>
+                                 </Link>
+                                <Link onClick={() => excluir(item.id)}>
+                                    <img src="/remove.png" alt="lixeira" width='30px'/>
+                                </Link>
+                            </div>
+                        </tr>   
                     )}
                 </tbody>
 

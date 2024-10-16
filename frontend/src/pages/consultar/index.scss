@@ -1,8 +1,26 @@
+body{
+    background-color: #d0dbe4;
+}
+
 .pagina-consultar {
     padding: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 
+
+    h2{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+    button{
+        background-color: #4CAF50;
+        margin-left: 20px;
+    }
     table {
-        width: 1200px;
+        width: 700px;
+        margin: 0 auto;
+        padding-left: 50px;
 
         th {
             text-align: left;
@@ -11,8 +29,10 @@
 
         td {
             padding: 5px;
-            border-top: 1px solid #000;
+            border-top: 2px solid red;
         }
+
+       
     }
     
 }

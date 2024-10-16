@@ -1,36 +1,41 @@
 
-
+body {
+    background-color: aliceblue;
+    }
 .pagina-cadastrar {
-    padding: 50px;
+    display: flex;
+    flex-direction: column;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 200px;
+    margin-left:  300px;
+    font-size: 20px;
+    gap: 20px;
 
-    
     .form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        > div {
+       color: aqua;
+        
+         div {
             display: flex;
-            align-items: center;
+            gap: 30px;
+            
 
             label {
-                display: inline-block;
-                width: 200px;
-                text-align: right;
-                padding-right: 10px;
-                font: 400 24px Arial;
+                display: flex;
+                margin-top: 30px;
             }
 
             input {
-                font: 400 24px Arial;
-                padding: 5px;
-                border: 1px solid #000;
+                padding: 15px;
+                border: 2px black  solid;
+                border-radius: 20px;
+                margin-top: 20px;
             }
         }
     }
 
     button {
-        font: 400 24px Arial;
-        padding: 20px;
+        display: flex;
+        max-width: 80px;
+        background-color: #4CAF50;
     }
 }
